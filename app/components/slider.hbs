@@ -1,0 +1,36 @@
+<div class='custom-carousel'>
+  <div class='slides' {{did-insert this.slider}}>
+    {{#each this.items as |item itemIndex|}}
+      <div class='row slide'>
+        {{#each item as |sliderItem index|}}
+          <div class='col-12 col-md-4 col-lg-3' style='height: 33.33vh;'>
+
+            <div
+              id='carouselExampleControls{{itemIndex}}{{index}}'
+              class='carousel slide'
+              style="min-height: unset; height: 100%;"
+              data-ride='carousel'
+            >
+              <div class='carousel-inner' style="height: 100%;">
+                {{#each sliderItem.images as | image imageIndex|}}
+                    <div class='carousel-item {{if (eq imageIndex 0) 'active'}}' style="height:100%;">
+                        <img class='d-block w-100' style="height: 100%;" src='{{image}}' alt='First slide' />
+                        <div class="carousel-caption d-none d-md-block">
+                            <a class="h1" style="cursor: pointer;">{{sliderItem.name}}</a>
+                        </div>
+                    </div>
+                {{/each}}
+              </div>
+            </div>
+
+
+          </div>
+        {{/each}}
+      </div>
+    {{/each}}
+  </div>
+  <div class='controls'>
+    <div class='control prev-slide'>&#9668;</div>
+    <div class='control next-slide'>&#9658;</div>
+  </div>
+</div>
